@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://striveks.github.io/tecnicas-interrogatorio-persuasao/sitemap.xml
