@@ -1,0 +1,3 @@
+# Working files that must NOT be published (the book interior is for local use only)
+*.docx
+.tmp-*
