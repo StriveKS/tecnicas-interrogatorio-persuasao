@@ -235,5 +235,22 @@ try{if(window.fbq)fbq('track','InitiateCheckout',{value:27.00,currency:'BRL',con
 try{if(window.gtag)gtag('event','begin_checkout',{value:27.00,currency:'BRL',items:[{item_name:'Técnicas de Interrogatório e Persuasão',price:27.00,quantity:1}]})}catch(x){}
 },true);
 </script>
+<script>
+(() => {
+  const source = new URLSearchParams(window.location.search);
+  const campaignKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "utm_id"];
+
+  for (const link of document.querySelectorAll('a[href^="https://pay.kiwify.com.br/8lrriie"]')) {
+    const checkout = new URL(link.href);
+    if (checkout.origin !== "https://pay.kiwify.com.br" || checkout.pathname !== "/8lrriie") continue;
+
+    for (const key of campaignKeys) {
+      const value = source.get(key);
+      if (value && !checkout.searchParams.has(key)) checkout.searchParams.set(key, value);
+    }
+    link.href = checkout.href;
+  }
+})();
+</script>
 </body>
 </html>
